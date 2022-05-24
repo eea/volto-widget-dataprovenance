@@ -101,3 +101,11 @@ See [LICENSE.md](https://github.com/eea/volto-addon-template/blob/master/LICENSE
 
 [European Environment Agency (EU)](http://eea.europa.eu)
 
+Environment Agency (EEA).
+All Rights Reserved.
+
+See [LICENSE.md](https://github.com/eea/volto-widget-dataprovenance/blob/master/LICENSE.md) for details.
+
+## Funding
+
+[European Environment Agency (EU)](http://eea.europa.eu)
