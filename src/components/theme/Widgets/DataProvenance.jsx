@@ -16,9 +16,9 @@ import Schema from './schema';
 import './style.css';
 
 export const DataProvenance = (props) => {
-  const { id, value = [], onChange, defaultData = {} } = props;
+  const { id, value = {}, onChange, defaultData = {} } = props;
   const predefinedSchema = Schema(props);
-  const flatListValue = isArray(value) ? value : [];
+  const flatListValue = isArray(value) ? value : Object.values(value);
   return (
     <>
       <FormFieldWrapper {...props} className="objectlist-inline-widget">
@@ -103,7 +103,17 @@ export const DataProvenance = (props) => {
                           const newvalue = flatListValue.map((v, i) =>
                             i !== index ? v : fv,
                           );
-                          onChange(id, newvalue);
+                          // const da = newvalue.map((item) => ({
+                          //   [item['@id']]: { ...item },
+                          // }));
+
+                          onChange(
+                            id,
+                            newvalue.reduce(
+                              (a, v) => ({ ...a, [v['@id']]: v }),
+                              {},
+                            ),
+                          );
                         }}
                       />
                     </Segment>
