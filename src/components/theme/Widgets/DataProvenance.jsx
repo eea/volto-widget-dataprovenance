@@ -1,6 +1,5 @@
 import React from 'react';
 import { Accordion, Button, Segment } from 'semantic-ui-react';
-import { isArray } from 'lodash';
 import {
   Icon as VoltoIcon,
   FormFieldWrapper,
@@ -16,9 +15,9 @@ import Schema from './schema';
 import './style.css';
 
 export const DataProvenance = (props) => {
-  const { id, value = {}, onChange } = props;
+  const { id, value = [], onChange, defaultData = {} } = props;
   const predefinedSchema = Schema(props);
-  const flatListValue = isArray(value) ? value : Object.values(value);
+  const flatListValue = value?.data || [];
   return (
     <>
       <FormFieldWrapper {...props} className="objectlist-inline-widget">
@@ -27,12 +26,14 @@ export const DataProvenance = (props) => {
             compact
             type="button"
             onClick={(e) => {
-              const newId = uuid();
               onChange(id, {
-                ...value,
-                [newId]: {
-                  '@id': newId,
-                },
+                data: [
+                  ...flatListValue,
+                  {
+                    '@id': uuid(),
+                    ...defaultData,
+                  },
+                ],
               });
               e.stopPropagation();
             }}
@@ -55,15 +56,7 @@ export const DataProvenance = (props) => {
           flatListValue[destination.index] = first;
           flatListValue[source.index] = second;
 
-          const obj = {};
-          flatListValue.forEach(
-            (item) => (obj[item?.['@id'].toString()] = item),
-          );
-
-          onChange(
-            id,
-            flatListValue.reduce((a, v) => ({ ...a, [v['@id']]: v }), {}),
-          );
+          onChange(id, { data: flatListValue });
           return true;
         }}
       >
@@ -91,12 +84,9 @@ export const DataProvenance = (props) => {
                     {`${predefinedSchema.title} #${index + 1}`}
                     <button
                       onClick={() => {
-                        onChange(
-                          id,
-                          flatListValue
-                            .filter((v, i) => i !== index)
-                            .reduce((a, v) => ({ ...a, [v['@id']]: v }), {}),
-                        );
+                        onChange(id, {
+                          data: flatListValue.filter((v, i) => i !== index),
+                        });
                       }}
                     >
                       <VoltoIcon name={deleteSVG} size="16px" />
@@ -113,17 +103,7 @@ export const DataProvenance = (props) => {
                           const newvalue = flatListValue.map((v, i) =>
                             i !== index ? v : fv,
                           );
-                          // const da = newvalue.map((item) => ({
-                          //   [item['@id']]: { ...item },
-                          // }));
-
-                          onChange(
-                            id,
-                            newvalue.reduce(
-                              (a, v) => ({ ...a, [v['@id']]: v }),
-                              {},
-                            ),
-                          );
+                          onChange(id, { data: newvalue });
                         }}
                       />
                     </Segment>
