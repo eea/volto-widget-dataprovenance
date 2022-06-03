@@ -16,7 +16,7 @@ import Schema from './schema';
 import './style.css';
 
 export const DataProvenance = (props) => {
-  const { id, value = {}, onChange, defaultData = {} } = props;
+  const { id, value = {}, onChange } = props;
   const predefinedSchema = Schema(props);
   const flatListValue = isArray(value) ? value : Object.values(value);
   return (
@@ -27,13 +27,13 @@ export const DataProvenance = (props) => {
             compact
             type="button"
             onClick={(e) => {
-              onChange(id, [
-                ...flatListValue,
-                {
-                  '@id': uuid(),
-                  ...defaultData,
+              const newId = uuid();
+              onChange(id, {
+                ...value,
+                [newId]: {
+                  '@id': newId,
                 },
-              ]);
+              });
               e.stopPropagation();
             }}
           >
@@ -55,7 +55,15 @@ export const DataProvenance = (props) => {
           flatListValue[destination.index] = first;
           flatListValue[source.index] = second;
 
-          onChange(id, flatListValue);
+          const obj = {};
+          flatListValue.forEach(
+            (item) => (obj[item?.['@id'].toString()] = item),
+          );
+
+          onChange(
+            id,
+            flatListValue.reduce((a, v) => ({ ...a, [v['@id']]: v }), {}),
+          );
           return true;
         }}
       >
