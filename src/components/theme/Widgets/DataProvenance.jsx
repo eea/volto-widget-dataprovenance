@@ -85,7 +85,9 @@ export const DataProvenance = (props) => {
                       onClick={() => {
                         onChange(
                           id,
-                          flatListValue.filter((v, i) => i !== index),
+                          flatListValue
+                            .filter((v, i) => i !== index)
+                            .reduce((a, v) => ({ ...a, [v['@id']]: v }), {}),
                         );
                       }}
                     >
