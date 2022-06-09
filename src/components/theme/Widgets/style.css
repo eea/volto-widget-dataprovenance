@@ -1,0 +1,54 @@
+@keyframes field-just-changed-anim {
+  0% {
+    background-color: yellow;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.field-just-changed {
+  animation: field-just-changed-anim 0.5s;
+}
+
+/* .field-attached-image .preview {
+    position: relative;
+  } */
+
+.field-attached-image .toolbar-inner {
+  display: flex;
+  align-items: center;
+}
+
+.field-attached-image .preview img {
+  width: 100%;
+}
+
+.field-attached-image .preview .ui.buttons {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+/* TODO: stop using maybe-already-used class names and !important, use LESS
+  .overrides files instead */
+
+/* button.with-middle-aligned-icon { */
+/*   vertical-align: bottom !important; */
+/* } */
+/*  */
+/* button.with-middle-aligned-icon > svg { */
+/*   vertical-align: bottom !important; */
+/* } */
+
+/* .field-object-counter { */
+/*   display: flex; */
+/*   align-items: center; */
+/*   align-self: center; */
+/*   color: #878f93; */
+/* } */
+/*  */
+/* .field-toolbar { */
+/*   text-align: center; */
+/* } */
