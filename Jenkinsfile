@@ -4,7 +4,7 @@ pipeline {
   environment {
         GIT_NAME = "volto-widget-dataprovenance"
         NAMESPACE = "@eeacms"
-        SONARQUBE_TAGS = "volto.eea.europa.eu"
+        SONARQUBE_TAGS = "volto.eea.europa.eu,clmsdemo.devel6cph.eea.europa.eu"
         DEPENDENCIES = ""
     }
 
