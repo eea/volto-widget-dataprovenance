@@ -1,5 +1,5 @@
 const Schema = (props) => ({
-  title: 'Data',
+  title: 'source',
   fieldsets: [
     {
       id: 'default',
@@ -18,7 +18,6 @@ const Schema = (props) => ({
       title: 'Url',
     },
     organisation: {
-      widget: 'slate_richtext',
       title: 'Organisation',
     },
   },
