@@ -1,7 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
 import { List } from 'semantic-ui-react';
-import './public.less';
 
 const DataProvenanceWidgetView = ({ value, className }) =>
   value?.data ? (
@@ -12,7 +11,7 @@ const DataProvenanceWidgetView = ({ value, className }) =>
           <List.Content key={index}>
             <a href={item.link}>{item.link}</a>
           </List.Content>
-          <List.Content key={index}>{item.organisation}</List.Content>
+          <List.Description key={index}>{item.organisation}</List.Description>
         </List.Item>
       ))}
     </List>
