@@ -4,14 +4,17 @@ import { List } from 'semantic-ui-react';
 
 const DataProvenanceWidgetView = ({ value, className }) =>
   value?.data ? (
-    <List className={cx(className, 'widget')}>
+    <List className={cx(className, 'widget')} bulleted={true}>
       {value.data.map((item, index) => (
-        <List.Item>
-          <List.Header key={index}>{item.title}</List.Header>
+        <List.Item className="horizontal">
           <List.Content key={index}>
-            <a href={item.link}>{item.link}</a>
+            <a href={item.link}>{item.title}</a>
           </List.Content>
-          <List.Description key={index}>{item.organisation}</List.Description>
+          {item.organisation && (
+            <List.Description key={index}>
+              {', ' + item.organisation}
+            </List.Description>
+          )}
         </List.Item>
       ))}
     </List>

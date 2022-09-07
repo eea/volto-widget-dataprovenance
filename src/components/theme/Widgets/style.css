@@ -12,6 +12,10 @@
   animation: field-just-changed-anim 0.5s;
 }
 
+.horizontal {
+  display: flex !important;
+}
+
 /* .field-attached-image .preview {
     position: relative;
   } */
