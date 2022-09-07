@@ -8,7 +8,7 @@ const DataProvenanceWidgetView = ({ value, className }) =>
       {value.data.map((item, index) => (
         <List.Item className="horizontal">
           <List.Content key={index}>
-            <a href={item.link}>{item.title}</a>
+            {item.link ? <a href={item.link}>{item.title}</a> : item.title}
           </List.Content>
           {item.organisation && (
             <List.Description key={index}>
