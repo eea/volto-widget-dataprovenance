@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { List } from 'semantic-ui-react';
 import { UniversalLink } from '@plone/volto/components';
+
 const DataProvenanceWidgetView = ({ value, className }) =>
   value?.data ? (
     <List className={cx(className, 'widget')} bulleted={true}>
