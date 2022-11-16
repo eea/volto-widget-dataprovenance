@@ -7,8 +7,8 @@ const DataProvenanceWidgetView = ({ value, className }) =>
   value?.data ? (
     <List className={cx(className, 'widget')} bulleted={true}>
       {value.data.map((item, index) => (
-        <List.Item className="horizontal">
-          <List.Content key={index}>
+        <List.Item className="horizontal" key={index}>
+          <List.Content>
             {item.link ? (
               <UniversalLink href={item.link}>{item.title}</UniversalLink>
             ) : (
@@ -16,9 +16,7 @@ const DataProvenanceWidgetView = ({ value, className }) =>
             )}
           </List.Content>
           {item.organisation && (
-            <List.Description key={index}>
-              {', ' + item.organisation}
-            </List.Description>
+            <List.Description>{', ' + item.organisation}</List.Description>
           )}
         </List.Item>
       ))}
