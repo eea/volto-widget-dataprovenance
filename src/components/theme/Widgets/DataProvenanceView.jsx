@@ -14,10 +14,8 @@ const DataProvenanceWidgetView = ({ value, className }) =>
             ) : (
               item.title
             )}
+            {item.organisation ? `, ${item.organisation}` : null}
           </List.Content>
-          {item.organisation && (
-            <List.Description>{', ' + item.organisation}</List.Description>
-          )}
         </List.Item>
       ))}
     </List>
