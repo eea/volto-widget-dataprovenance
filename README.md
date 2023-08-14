@@ -18,7 +18,7 @@
 
 ## Features
 
-Demo GIF
+![Dataprovenance](https://github.com/eea/volto-widget-dataprovenance/raw/develop/docs/volto-widget-dataprovenance.gif)
 
 ## Getting started
 
