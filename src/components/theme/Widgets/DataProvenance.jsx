@@ -6,7 +6,7 @@ import {
   DragDropList,
 } from '@plone/volto/components';
 import { ObjectWidget } from '@plone/volto/components';
-
+import { default as DataProvenanceWidgetView } from './DataProvenanceView';
 import deleteSVG from '@plone/volto/icons/delete.svg';
 import addSVG from '@plone/volto/icons/add.svg';
 import dragSVG from '@plone/volto/icons/drag.svg';
@@ -15,10 +15,17 @@ import Schema from './schema';
 import './style.css';
 
 export const DataProvenance = (props) => {
-  const { id, value = [], onChange, defaultData = {} } = props;
+  const { id, value = {}, defaultData = {}, onChange } = props;
+  const { readOnly = false, data = [] } = value;
   const predefinedSchema = Schema(props);
-  const flatListValue = value?.data || [];
-  return (
+  const flatListValue = data || [];
+  return readOnly ? (
+    <>
+      <FormFieldWrapper {...props} className="objectlist-inline-widget">
+        <DataProvenanceWidgetView value={value} />
+      </FormFieldWrapper>
+    </>
+  ) : (
     <>
       <FormFieldWrapper {...props} className="objectlist-inline-widget">
         <div>
