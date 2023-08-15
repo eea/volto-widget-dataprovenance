@@ -5,22 +5,21 @@ import { UniversalLink } from '@plone/volto/components';
 
 const DataProvenanceWidgetView = ({ value, className }) =>
   value?.data ? (
-    <List className={cx(className, 'widget')} bulleted={true}>
+    <List className={cx(className, 'widget')} bulleted={true} as="ul">
       {value.data.map((item, index) => (
-        <List.Item className="horizontal" key={index}>
-          <List.Content>
+        <List.Item className="horizontal" key={index} as="li">
+          <div>
             {item.link ? (
               <UniversalLink href={item.link}>{item.title}</UniversalLink>
             ) : (
               item.title
             )}
             {item.organisation ? `, ${item.organisation}` : null}
-          </List.Content>
+          </div>
         </List.Item>
       ))}
     </List>
   ) : (
     ''
   );
-
 export default DataProvenanceWidgetView;
