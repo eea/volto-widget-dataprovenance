@@ -9,7 +9,7 @@ pipeline {
   environment {
     GIT_NAME = "volto-widget-dataprovenance"
     NAMESPACE = "@eeacms"
-    SONARQUBE_TAGS = "volto.eea.europa.eu,clmsdemo.devel6cph.eea.europa.eu,forest.eea.europa.eu,demo-www.eea.europa.eu,www.eea.europa.eu-ims,biodiversity.europa.eu,water.europa.eu-marine,climate-adapt.eea.europa.eu,climate-energy.eea.europa.eu,climate-advisory-board.devel4cph.eea.europa.eu,climate-advisory-board.europa.eu,www.eea.europa.eu-en,industry.eea.europa.eu,water.europa.eu-freshwater,land.copernicus.eu"
+    SONARQUBE_TAGS = "volto.eea.europa.eu,clmsdemo.devel6cph.eea.europa.eu,forest.eea.europa.eu,demo-www.eea.europa.eu,www.eea.europa.eu-ims,biodiversity.europa.eu,water.europa.eu-marine,climate-adapt.eea.europa.eu,climate-energy.eea.europa.eu,climate-advisory-board.devel4cph.eea.europa.eu,climate-advisory-board.europa.eu,www.eea.europa.eu-en,industry.eea.europa.eu,water.europa.eu-freshwater,land.copernicus.eu,insitu-frontend.eionet.europa.eu"
     DEPENDENCIES = ""
     BACKEND_PROFILES = "eea.kitkat:testing"
     BACKEND_ADDONS = ""
