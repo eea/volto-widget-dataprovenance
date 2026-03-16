@@ -16,18 +16,18 @@ const store = mockStore({
 });
 
 describe('DataProvenance', () => {
-  it('should render without crash', () => {
-    const { getByText } = render(
+  it('should render without crash', async () => {
+    const { findByText } = render(
       <Provider store={store}>
         <DataProvenance />
       </Provider>,
     );
-    expect(getByText(`Add source`)).toBeInTheDocument();
+    expect(await findByText(`Add source`)).toBeInTheDocument();
   });
 
-  it('should add an item to the list when the add button is clicked', () => {
+  it('should add an item to the list when the add button is clicked', async () => {
     const onChangeMock = jest.fn();
-    const { getByText } = render(
+    const { findByText } = render(
       <Provider store={store}>
         <DataProvenance
           onChange={onChangeMock}
@@ -36,7 +36,7 @@ describe('DataProvenance', () => {
         />
       </Provider>,
     );
-    fireEvent.click(getByText(`Add source`));
+    fireEvent.click(await findByText(`Add source`));
     expect(onChangeMock).toHaveBeenCalled();
   });
 });
