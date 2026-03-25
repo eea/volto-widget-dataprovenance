@@ -4,7 +4,7 @@ import DataProvenanceView from './DataProvenanceView';
 import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 const mockStore = configureStore();
 const store = mockStore({
