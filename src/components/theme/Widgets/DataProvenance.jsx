@@ -1,11 +1,9 @@
 import React from 'react';
 import { Accordion, Button, Segment } from 'semantic-ui-react';
-import {
-  Icon as VoltoIcon,
-  FormFieldWrapper,
-  DragDropList,
-} from '@plone/volto/components';
-import { ObjectWidget } from '@plone/volto/components';
+import VoltoIcon from '@plone/volto/components/theme/Icon/Icon';
+import DragDropList from '@plone/volto/components/manage/DragDropList/DragDropList';
+import { FormFieldWrapper } from '@plone/volto/components/manage/Widgets';
+import { ObjectWidget } from '@plone/volto/components/manage/Widgets';
 import { default as DataProvenanceWidgetView } from './DataProvenanceView';
 import deleteSVG from '@plone/volto/icons/delete.svg';
 import addSVG from '@plone/volto/icons/add.svg';
