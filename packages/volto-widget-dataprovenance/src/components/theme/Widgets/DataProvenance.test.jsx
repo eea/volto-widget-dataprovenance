@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { DataProvenance } from './DataProvenance';
@@ -26,7 +27,7 @@ describe('DataProvenance', () => {
   });
 
   it('should add an item to the list when the add button is clicked', async () => {
-    const onChangeMock = jest.fn();
+    const onChangeMock = vi.fn();
     const { findByText } = render(
       <Provider store={store}>
         <DataProvenance
